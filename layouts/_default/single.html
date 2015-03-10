@@ -20,9 +20,6 @@
   <section>
     {{ .Content }}
   </section>
-  <section>
-    {{ template "_internal/disqus.html" . }}
-  </section>
   <footer>
     <section class="author-info row">
       <div class="author-avatar col-md-2">
@@ -47,6 +44,7 @@
       </div>
       {{ end }}
     </section>
+    {{ partial "disqus.html" . }}
     <ul class="pager">
       {{ if .Next }}
       <li class="previous"><a href="{{ .Next.Permalink }}"><span aria-hidden="true">&larr;</span> Older</a></li>
