@@ -8,13 +8,43 @@
   <meta property="og:url" content="{{ .Permalink }}" />
   {{ if .IsPage }}
   <meta property="og:type" content="article" />
-  {{ with .Site.Params.facebook }}
-  <meta property="og:article:author" content="https://facebook.com/{{ . }}" />
+  {{ with .Site.Params.twitter }}
+  <meta property="og:article:author" content="https://twitter.com/{{ . }}" />
   {{ end }}
   <meta property="og:article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHtml }}" />
   {{ range .Params.tags }}
   <meta property="og:article:tag" content="{{ . }}" />
   {{ end }}
+
+  {{ if ne .Params.image "" }}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image:src" content="{{ .Site.BaseUrl }}{{ .Params.image }}" />
+  {{ else }}
+  <meta name="twitter:card" content="summary" />
+  {{ end }}
+  <meta name="twitter:title" content="{{ .Title }}" />
+  <meta name="twitter:description" content="{{ .Description }}" />
+  <meta name="twitter:url" content="{{ .Permalink }}" />
+  {{ with .Site.Params.twitter }}
+  <meta name="twitter:creator" content="@{{ . }}" />
+  {{ end }}
+
+  <script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "{{ .Site.Params.author }}",
+    "headline": "{{ .Title }} &middot; {{ .Site.Title }}",
+    "url": "{{ .Permalink }}",
+    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHtml }}",
+    {{ if ne .Params.image "" }}
+    "image": "{{ .Site.BaseUrl }}{{ .Params.image }}",
+    {{ end }}
+    "description": "{{ .Description }}"
+    }
+  </script>
+
+
   {{ else }}
   <meta property="og:type" content="website" />
   {{ end }}
@@ -27,10 +57,11 @@
   <link rel="stylesheet" href="{{ .Site.BaseUrl }}css/main.css" />
   <link rel="stylesheet" href="{{ .Site.BaseUrl }}css/font-awesome.min.css" />
   <link rel="stylesheet" href="{{ .Site.BaseUrl }}css/github.css" />
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
   <link rel="shortcut icon" href="{{ .Site.BaseUrl }}images/favicon.ico" />
   <link rel="apple-touch-icon" href="{{ .Site.BaseUrl }}images/apple-touch-icon.png" />
   <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+
 </head>
 <body>
   <header class="global-header">
@@ -42,6 +73,13 @@
       </div>
       {{ end }}
       {{ partial "link.html" . }}
+      <div class="hidden-print tag-line" >
+        <p><a href='/about/'>About</a>
+          <br />
+          <a href='/cv/'>Resume</a>
+        </p>
+      </div>
+
       {{ if ne .Url "/" }}
       <a href="{{ .Site.BaseUrl }}" class="btn-header btn-back hidden-xs">
         <i class="fa fa-angle-left"></i>
