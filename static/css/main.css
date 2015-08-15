@@ -1,16 +1,18 @@
 main {
     max-width: 750px;
+    word-wrap: break-word;
 }
 
 /* Header */
 
 .global-header {
-    background-image: url(/images/bg.jpg);
+    background: #222 no-repeat center center;
     background-size: cover;
 }
 
 .header-text {
     position: relative;
+    padding-bottom: 1px;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     color: rgba(255, 255, 255, 0.9);
@@ -188,6 +190,8 @@ a.btn-back {
 }
 
 .author-avatar img {
+    max-width: 100px;
+    max-height: 100px;
     width: 100px;
     height: 100px;
     border-radius: 50px;
@@ -196,9 +200,9 @@ a.btn-back {
 .author-contact {
     position: relative;
     display: inline-block;
+    padding-top: 10px;
     height: 100px;
     text-align: center;
-    padding-top: 10px;
 }
 
 .author-contact a {
@@ -210,13 +214,54 @@ a.btn-back {
     text-decoration: none;
     font-weight: 300;
     font-size: 13px;
-    transition: background-color,border-color,color 0.1s linear
+    transition: background-color,border-color,color 0.1s linear;
 }
 
 .author-contact a:hover {
-    background-color: rgba(51, 122, 183, 1.0);
     border: 1px solid rgba(51, 122, 182, 1.0);
+    background-color: rgba(51, 122, 183, 1.0);
     color: rgba(255, 255, 255, 1.0);
+}
+
+/* Pagination */
+
+.pagination
+{
+	width: 720px;
+	text-align: center;
+}
+
+.older-posts,.newer-posts
+{
+	display: inline!important;
+	border: 1px solid #ddd;
+	border-radius: 15px;
+	text-decoration: none;
+	transition: border .3s ease;
+	padding: 5px 14px;
+}
+
+.page-number
+{
+	display: inline-block;
+	min-width: 100px;
+	padding: 2px 0;
+}
+
+.newer-posts
+{
+	float: left;
+}
+
+.older-posts
+{
+    float: right;
+}
+
+.older-posts:hover,.newer-posts:hover
+{
+	color: #889093;
+	border-color: #98a0a4;
 }
 
 /* Override some of Bootstrap's styles */
@@ -240,10 +285,11 @@ blockquote {
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: "Source Sans Pro", "Kozuka Gothic Pr6N", Meiryo, sans-serif; !important
+    font-family: "Source Sans Pro", "Kozuka Gothic Pr6N", Meiryo, sans-serif !important;
 }
 
-article img {
+article section img {
     max-width: 100%;
     height: auto;
+    margin: 13px auto;
 }

@@ -7,7 +7,7 @@ Notable features are:
 
 - Simple and clean design
 - Client side source code highlighting
-- Social links (Twitter, Facebook, GitHub, LinkedIn)
+- Social links (Twitter, Facebook, GitHub, LinkedIn, Instagram, Keybase)
 - Support for tags
 - Analytics with Google Analytics or Mixpanel
 - Responsive design
@@ -22,6 +22,8 @@ $ mkdir themes
 $ cd themes
 $ git clone https://github.com/keichi/vienna
 ```
+
+Vienna is also included in the `spf13/hugoThemes` repository.
 
 ## Configuration
 
@@ -41,7 +43,13 @@ copyright = "&copy; Copyright notice"
     twitter = "Your Twitter username"
     github = "Your GitHub username"
     linkedin = "Your LinkedIn username"
+    googleplus = "Your Google+ user id"
     facebook = "Your Facebook username"
+    stackoverflow = "Your Stackoverflow user id (number)"
+    keybase = "Your keybase.io username"
+    instagram = "Your Instagram username"
+    # Disqus shortname
+    disqus = "Your disqus shortname"
     # Google Analytics API key.
     ga_api_key = "Your Google Analytics tracking id"
     # Mixpanel API key.
@@ -49,9 +57,10 @@ copyright = "&copy; Copyright notice"
     author = "Your Name"
     avatar = "/path/to/avatar"
     contact = "Your contact link (ex. mailto:foo@example.com)"
-    bio = "Your short bio/tagline"
+    bio = "Your short bio"
     # Short subtitle/tagline. This is displayed in the header.
-    subtitle = "is a software developer, hardware hacker and a beer lover. He believes in the power of code."
+    subtitle = "Short subtitle/tagline of your blog"
+    themecolor = "#hexcolor" # Defines the tab color in Chrome for Android.
 ```
 
 ## Usage
