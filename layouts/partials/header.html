@@ -75,7 +75,7 @@
   <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 </head>
 <body>
-    <header class="global-header"  style="background-image:url({{ if isset .Params "image" }}{{ .Params.image }} {{ else }} /images/bg.jpg {{ end }})">
+    <header class="global-header"  style="background-position: center top; background-attachment: fixed; background-image:url({{ if and (isset .Params "image") (not (eq .Params.image "")) }}{{ .Params.image }} {{ else }} /images/bg.jpg {{ end }})">
     <section class="header-text">
       <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
       {{ with .Site.Params.subtitle }}
